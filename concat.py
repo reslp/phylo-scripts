@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # Concatenator script to create concatenated alignments for multiple loci
 # written by Philipp Resl, Okt. 2013
-# code may be freely distributed and modified
 # feedback to: philipp.resl@uni-graz.at
 # http://resl.tumblr.com
-import sys #for command line arguments
+import sys
 
 #print "Concatenator"
 Info = """
