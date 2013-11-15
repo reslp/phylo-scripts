@@ -34,16 +34,8 @@ Percent = [0.0]*len(SequenceList[1])
 for Sequence in SequenceList:
 	Sequence.replace("\n", "")
 	for i in range(len(Sequence)):
-		if Sequence[i] is "A": Percent[i] += 1
-		if Sequence[i] is "C": Percent[i] += 1
-		if Sequence[i] is "G": Percent[i] += 1
-		if Sequence[i] is "T": Percent[i] += 1
-		if Sequence[i] is "N": Percent[i] += 1
+		if Sequence[i] in "ACGTN": Percent[i] += 1
 
-#print len(Percent)
-#print len(SequenceList)
-#print len (SequenceList[1])
-#print MaxSeq
 Number = 0
 index = 0
 RedSequence  = [""] * MaxSeq
