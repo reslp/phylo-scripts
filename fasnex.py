@@ -36,13 +36,13 @@ for Line in Fastafile:
 LongestSeq = max(SequenceList, key=len)
 print "#NEXUS\n"
 print "BEGIN data;\n"
-print "Dimensions: ntax=%d nchar=%d;\n" % (TaxNumber, len(LongestSeq))
+print "Dimensions ntax=%d nchar=%d;\n" % (TaxNumber, len(LongestSeq))
 print "Format datatype=dna missing=? gap=-;\n"
 print "Matrix\n"
 WhichSeq = 0
 
 for Taxon in TaxonList:
-	print Taxon, "\t", SequenceList[WhichSeq]
+	print Taxon, "\n", SequenceList[WhichSeq]
 	WhichSeq += 1
 print ";\n"
 print "END;\n"	
