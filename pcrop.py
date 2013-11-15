@@ -15,7 +15,6 @@ else:
 	FileName = sys.argv[2]
 	
 #FileName =  "concat.fas" 
-
 TaxonList = []
 SequenceList = []
 
