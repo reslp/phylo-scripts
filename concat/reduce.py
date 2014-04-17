@@ -26,7 +26,7 @@ TaxonList = []
 for Line in TaxonFile:
 	TaxonList.append(Line.strip("\n"))
 	
-sys.stderr.write("List of Taxa:\n %s\n" % TaxonList)
+sys.stderr.write("Reducing file %s to this list of Taxa:\n %s\n" % (File, TaxonList))
 TaxonListOutput = TaxonList [:] #Taxon List for Output
 TaxonFile.close()
 
