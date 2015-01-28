@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # script calculates percentage of available bases for each position in alignment
+# sequence needs to be in single line!!
 import sys
 
 Info = """
@@ -11,7 +12,7 @@ Send me an infile!
 #	quit()
 #else:
 #	FileName = sys.argv[1]
-FileName =  "concat.fas" 
+FileName =  "A_ITS_all_red_mafft_replaced_final.fst" 
 
 TaxonList = []
 SequenceList = []
@@ -25,22 +26,34 @@ for Line in File:
 		SequenceList.append(Line)
 
 MaxSeq = len(TaxonList)
-#print MaxSeq
 Percent = [0.0]*len(SequenceList[1])
 #print SequenceList
+print TaxonList
 for Sequence in SequenceList:
 	Sequence.replace("\n", "")
 	for i in range(len(Sequence)):
-		if Sequence[i] is "A": Percent[i] += 1
-		if Sequence[i] is "C": Percent[i] += 1
-		if Sequence[i] is "G": Percent[i] += 1
-		if Sequence[i] is "T": Percent[i] += 1
+		if Sequence[i] is "A" or Sequence[i] is "a": Percent[i] += 1
+		if Sequence[i] is "C" or Sequence[i] is "c": Percent[i] += 1
+		if Sequence[i] is "G" or Sequence[i] is "g": Percent[i] += 1
+		if Sequence[i] is "T" or Sequence[i] is "t": Percent[i] += 1
+		if Sequence[i] is "N" or Sequence[i] is "n": Percent[i] += 1
 
 Number = 0
+Complete_Nucleotides = 0
+
 for Element in Percent:
-	Percent[Number] = ((Element*100)/MaxSeq)
-	print Number,  " %.2f" % Percent[Number]
+	#print Number
+	#print Number, Element, ((Element*100)/MaxSeq)
+	#Percent[Number] = ((Element*100)/MaxSeq)
+	perce = ((Element*100)/MaxSeq)
+	Complete_Nucleotides += Element
+	#print Number,  " %.2f" % Percent[Number]
+	print "%.2f" % perce
 	Number += 1
+print "Complete Number of Nucleotides in Alignment: %.2f"  % Complete_Nucleotides
+print "Total number of positions %.2f" % (len(Percent)*MaxSeq)
+print "Alignment is %.2f percent complete " % ((Complete_Nucleotides*100)/(len(Percent)*MaxSeq))
+
 		
 
 File.close()
