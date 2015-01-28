@@ -6,7 +6,6 @@ import sys
 Info = """
 Usage: pcrop.py <cutoff%> <inputfile> > <outputfile>
 """
-
 if len(sys.argv) <= 2:
 	sys.stderr.write(Info)
 	quit()
