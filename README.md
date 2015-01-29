@@ -27,6 +27,7 @@ REQUIREMENTS AND INSTALLATION
 - [python](www.python.org) 2.7.8+, which comes with most Unix like systems
 - [mafft](http://mafft.cbrc.jp/alignment/software/) v7, for the alignment function
 
+
 1. Download repository
 2. Make sure mafft is in your PATH
 3. Modify scripts to match your own analysis
