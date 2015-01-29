@@ -14,7 +14,7 @@ The pipeline takes single locus files as input and creates a concatenated alignm
 How does it work?
 ================
 
-The master script that controls the pipeline is the bash script `get_analysis.sh`. First this script checks if all the mandatory files are present. Then it reduces the provided files to the desired set of taxa by calling the script `reduce.py`. The set of taxa is contained in the file: `IDs_used_for_tree.txt`. Now, `mafft`is called to align the reduced single locus files. Next, gaps (-) that were introduced by mafft at the beginning and end of the alignments are replaced by question marks (?). Finally, 
+ `get_analysis.sh` is the master script that controls the pipeline. First it checks if all the mandatory files are present. Then it reduces the provided FASTA files to the desired set of taxa by calling the script `reduce.py`. The set of taxa is contained in the file: `IDs_used_for_tree.txt` (see below). Now, `mafft`is called to align the reduced single locus files. Next, gaps (-) that were introduced by mafft at the beginning and end of the alignments are replaced by question marks (?). Finally, 
 `concat.py` combines the aligned single locus files into one single file and adds question marks for missing loci.
 
 You will end up with a file called concat.fas that contains a concatenated alignment for all the taxa provied in your ID file.
@@ -51,7 +51,7 @@ An example:
 Say in your ID file you have the name X132. The scripts will search for sequences that start with this name in your FASTA files.
 Valid names would be: >X132_Temella_sp or >X132_unknown_algae. The scripts will not recognise sequences with names like: >_new_seq_X132 or >mtssu_X132_old
 Also make sure that the names provided in your ID file are unique.
-The rational behind this is that by providing an unique name for taxa/extractions the script will know which sequences from different loci belong to one taxon.
+The rational behind this is that by providing a unique name for taxa/extractions the script will know which sequences from different loci belong to this taxon.
 
 
 Usage
