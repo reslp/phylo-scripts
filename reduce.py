@@ -4,11 +4,11 @@
 # code may be freely distributed and modified
 # feedback to: philipp.resl@uni-graz.at
 # http://resl.tumblr.com
+# modified: 18.08.14
 import sys #for command line arguments
 
-#print "Concatenator"
 Info = """
-Reducer 1.0
+wrong arguments provided...
 
 """
 
@@ -24,7 +24,10 @@ TaxonFile = open(TaxonFilename, "r")
 TaxonList = []
 
 for Line in TaxonFile:
-	TaxonList.append(Line.strip("\n"))
+	if "\r\n" in Line: #probably not needed, only for windows
+		TaxonList.append(Line.strip("\r\n"))
+	else:
+		TaxonList.append(Line.strip("\n"))
 	
 sys.stderr.write("Reducing file %s to this list of Taxa:\n %s\n" % (File, TaxonList))
 TaxonListOutput = TaxonList [:] #Taxon List for Output
@@ -45,7 +48,7 @@ for Taxon in TaxonList:
 	for Line in Sequenzfile:
 		#print Taxon
 		#print Line
-		if Taxon in Line:
+		if Line.startswith(">"+Taxon):
 			print Line.strip("\n")
 			Found = 1
 			continue

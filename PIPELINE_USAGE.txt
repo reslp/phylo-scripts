@@ -1,0 +1,30 @@
+Workflow for using the concat script pipeline:
+
+
+It will use sequences and scripts from the shared Dropbox folders:
+original_sequence_files
+and
+phylo_scripts
+
+Always make sure that IDs_used_for_tree.txt is encoded with UNIX line endings.
+
+
+1. Create local directory where you would like to run the analysis.
+
+2. Copy files get_analysis.sh and IDs_used_for_tree.txt in that dir.
+	Important: get_analysis.sh assumes that your Dropbox folder is in home.
+	
+3. Change IDs_used_for_tree.txt to desired set of taxa.
+	Important: File should not end with a blank line.
+	
+4. Run get_analysis.sh
+	Important: mafft needs to be installed on your local machine
+	
+5. Run phylogenetic tree
+
+6. Run the following command to get readable names for your tree:
+	~/Dropbox/phylo_scripts/name_tree.py ~/Dropbox/original_sequence_files/readable_tree_names.txt treeinfile.tre > treeoutfile.tre
+
+	
+	
+	 

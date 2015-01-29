@@ -46,4 +46,9 @@ for Taxon in TaxonList:
 	WhichSeq += 1
 print ";\n"
 print "END;\n"	
+
+
 Fastafile.close()
+
+ 	
+ 
