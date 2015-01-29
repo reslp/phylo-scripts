@@ -38,6 +38,7 @@ How do I modify the scripts for my own dataset?
 Several parts of the pipeline are personalized for my own needs. However, it is easy to adapt them for your own analyses.
 Normally the only script you have to edit is `get_analysis.sh` to match the path and number of your single locus files. Open the file in a normal text editor and change the file paths according to the situation on your computer. 
 All scripts take absolute and relative paths as input. Because all temporary files will be crreated in the same directory your scripts run in, I recommend to use absolute paths for the `reduce.py` script and keep your original single locus files in a seperate directory, so that you don't accidentaly delete your raw data files. You can also change the alignment algorithm `mafft`uses. Just change the settings according to your needs.
+Please also have a look at the PIPELINE_USAGE.txt file. If you have any further questions, feel free to contact me.
 
 
 COPYRIGTH AND LICENSE
