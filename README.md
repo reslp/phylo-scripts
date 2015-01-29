@@ -17,7 +17,7 @@ How does it work?
 The master script that controls the pipeline is the bash script `get_analysis.sh`. First this script checks if all the mandatory files are present. Then it reduces the provided files to the desired set of taxa by calling the script `reduce.py`. The set of taxa is contained in the file: `IDs_used_for_tree.txt`. Now, `mafft`is called to align the reduced single locus files. Next, gaps (-) that were introduced by mafft at the beginning and end of the alignments are replaced by question marks (?). Finally, 
 `concat.py` combines the aligned single locus files into one single file and adds question marks for missing loci.
 
-You will end up with a file called concat.fas which is your concatenated alignment.
+You will end up with a file called concat.fas that contains a concatenated alignment for all the taxa provied in your ID file.
 
 
 Requirements and installation
@@ -42,6 +42,17 @@ Normally the only script you have to edit is `get_analysis.sh` to match the path
 All scripts take absolute and relative paths as input. Because all temporary files will be crreated in the same directory your scripts run in, I recommend to use absolute paths for the `reduce.py` script and keep your original single locus files in a seperate directory, so that you don't accidentaly delete your raw data files. You can also change the alignment algorithm `mafft`uses. Just change the settings according to your needs.
 
 Please also have a look at the PIPELINE_USAGE.txt file. If you have any further questions, feel free to contact me.
+
+What does the file IDs_used_for_tree.txt do?
+=========
+This "IDs_used_for_tree.txt" tells the pipeline which taxa you would like to include in your concatenated alignment. It includes names that the scripts search for in your single locus files. The important part is that the sequences in your single locus files also start with those identifiers.
+
+An example:
+Say in your ID file you have the name X132. The scripts will search for sequences that start with this name in your FASTA files.
+Valid names would be: >X132_Temella_sp or >X132_unknown_algae. The scripts will not recognise sequences with names like: >_new_seq_X132 or >mtssu_X132_old
+Also make sure that the names provided in your ID file are unique.
+The rational behind this is that by providing an unique name for taxa/extractions the script will know which sequences from different loci belong to one taxon.
+
 
 Usage
 =======
