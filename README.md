@@ -17,25 +17,29 @@ How does it work?
 The master script that controls the pipeline is the bash script `get_analysis.sh`. First this script checks if all the mandatory files are present. Then it reduces the provided files to the desired set of taxa by calling the script `reduce.py`. The set of taxa is contained in the file: `IDs_used_for_tree.txt`. Now, `mafft`is called to align the reduced single locus files. Next, gaps (-) that were introduced by mafft at the beginning and end of the alignments are replaced by question marks (?). Finally, 
 `concat.py` combines the aligned single locus files into one single file and adds question marks for missing loci.
 
+You will end up with a file called concat.fas which is your concatenated alignment.
 
-REQUIREMENTS
+
+REQUIREMENTS AND INSTALLATION
 ============
 
 - MacOS X or other Unix like operating system (Windows Version in the works)
 - [python](www.python.org) 2.7.8+, which comes with most Unix like systems
 - [mafft](http://mafft.cbrc.jp/alignment/software/) v7, for the alignment function
 
+1. Download repository
+2. Make sure mafft is in your PATH
+3. Modify scripts to match your own analysis
+4. run get_analysis.sh
 
-EXAMPLES
+
+How do I modify the scripts for my own dataset?
 ========
+Several parts of the pipeline are very personalized for my own needs. However, it is easy to adapt them for your own analyses.
 
-probably the simplest way to call concat.py is to provide a sequence ID file and a directory containing FASTA files of individual loci:
 
-`python concat.py -t SeqIDFile.txt -d /path/to/sequences/ `
 
-Getting help (displays all available command options):
 
-`python concat.py -h`
 
 
 
