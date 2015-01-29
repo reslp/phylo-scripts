@@ -5,7 +5,7 @@ This repository contains several small scripts that help with creating concatena
 I created these scripts to be able to quickly create alignments with different taxon samplings for phylogenetic reconstructions.
 
 
-DESCRIPTION
+Description
 ===========
 
 The pipeline takes single locus files as input and creates a concatenated alignment file according to a desired taxon set.
@@ -20,7 +20,7 @@ The master script that controls the pipeline is the bash script `get_analysis.sh
 You will end up with a file called concat.fas which is your concatenated alignment.
 
 
-REQUIREMENTS AND INSTALLATION
+Requirements and installation
 ============
 
 - MacOS X or other Unix like operating system (Windows Version in the works)
@@ -41,11 +41,13 @@ Normally the only script you have to edit is `get_analysis.sh` to match the path
 All scripts take absolute and relative paths as input. Because all temporary files will be crreated in the same directory your scripts run in, I recommend to use absolute paths for the `reduce.py` script and keep your original single locus files in a seperate directory, so that you don't accidentaly delete your raw data files. You can also change the alignment algorithm `mafft`uses. Just change the settings according to your needs.
 Please also have a look at the PIPELINE_USAGE.txt file. If you have any further questions, feel free to contact me.
 
-USAGE
+Usage
 =======
 Simply execute:
 `./get_analysis.sh`
 
+Citation
+========
 
 
 COPYRIGTH AND LICENSE
