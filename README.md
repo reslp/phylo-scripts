@@ -59,10 +59,7 @@ Usage
 Simply execute:
 `./get_analysis.sh`
 
-Citation
-========
 
-Resl, P (2014) phylo-scripts: A pipeline for creating multilocus alignments.
 
 
 COPYRIGTH AND LICENSE
