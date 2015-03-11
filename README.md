@@ -59,7 +59,11 @@ Usage
 Simply execute:
 `./get_analysis.sh`
 
+How do I cite this?
+=========
+Please cite as:
 
+Philipp Resl (2015): phylo-scripts: Python scripts for phylogenetics. release v0.1. available at: http://github.com/reslp https://zenodo.org/badge/doi/10.5281/zenodo.15983.svg
 
 
 COPYRIGTH AND LICENSE
