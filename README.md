@@ -65,6 +65,8 @@ Please cite as:
 
 Philipp Resl (2015): phylo-scripts: Python scripts for phylogenetics. release v0.1. available at: http://github.com/reslp [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.15983.svg)](http://dx.doi.org/10.5281/zenodo.15983)
 
+Philipp Resl, Kevin Schneider, Martin Westberg, Christian Printzen, Zdeněk Palice, Göran Thor, Alan Fryday, Helmut Mayrhofer and Toby Spribille (2015) Diagnostics for a troubled backbone: testing topological hypotheses of trapelioid lichenized fungi in a large-scale phylogeny of Ostropomycetidae (Lecanoromycetes). Fungal Diversity (in press)
+
 
 COPYRIGTH AND LICENSE
 =====================
