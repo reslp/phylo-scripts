@@ -19,6 +19,7 @@ How does it work?
 
 You will end up with a file called concat.fas that contains a concatenated alignment for all the taxa provied in your ID file.
 
+Also you may have a look at the `PIPELINE_USAGE.txt` file
 
 Requirements and installation
 ============
@@ -53,6 +54,16 @@ Valid names would be: >X132_Temella_sp or >X132_unknown_algae. The scripts will 
 Also make sure that the names provided in your ID file are unique.
 The rational behind this is that by providing a unique name for taxa/extractions the script will know which sequences from different loci belong to this taxon.
 
+What do the other scripts do?
+=========
+There are several other scripts included in the package:
+
+`fasnex.py` is a simple FASTA to NEXUS file converter. Usage: `./fasnex.py input.fas > output.nex`
+
+`name_tree.py` is a script to put readable names on the tree after using concat. Usage: `./name_tree.py tree_names.txt input_tree.tre > output_tree.tre`. Important: tree_names.txt has to be tab delimited with the first column containing the IDs from your IDs_used_for_tree.txt file and the second column containing the desired readable names.
+
+`pcrop.py` crops your FASTA alignment to positions with a given minimum percentage of nucleotides relative to all taxa in the alignment. Usage: Usage: `./pcrop.py <cutoff%> <inputfile> > <outputfile>`
+
 
 Usage
 =======
@@ -61,7 +72,7 @@ Simply execute:
 
 How do I cite this?
 =========
-Please cite as:
+When you use these scripts please add these two citations to your manuscript:
 
 Philipp Resl (2015): phylo-scripts: Python scripts for phylogenetics. release v0.1. available at: http://github.com/reslp [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.15983.svg)](http://dx.doi.org/10.5281/zenodo.15983)
 
@@ -82,4 +93,3 @@ You should have received a copy of the GNU General Public License along with thi
 
 
 
-See PIPELINE_USAGE.txt from information on how this works.
