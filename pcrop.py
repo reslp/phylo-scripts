@@ -28,14 +28,19 @@ File = open(FileName, "U")
 
 Sequence = ""
 for Line in File:
-	#newseq = 0
 	if Line[0] == ">":
 		TaxonList.append(Line)
-		SequenceList.append(Sequence)
+		SequenceList.append(Sequence.replace("\n",""))
 		Sequence = ""
 	else:		
 		Sequence += Line
+SequenceList.append(Sequence.replace("\n",""))
 SequenceList.pop(0)
+print SequenceList
+print TaxonList
+print len(SequenceList)
+print len(TaxonList)
+
 
 
 
@@ -44,13 +49,14 @@ MaxSeq = len(TaxonList)
 Percent = [0.0]*len(SequenceList[1])
 
 for Sequence in SequenceList:
-	Sequence.replace("\n", "")
+	#Sequence.replace("\n", "")
 	for i in range(len(Sequence)):
 		if Sequence[i] in "ACGTactgNn": Percent[i] += 1
 
 Number = 0
 index = 0
 RedSequence  = [""] * MaxSeq
+
 
 for Sequence in SequenceList:
 	WorkSeq = list(Sequence)
