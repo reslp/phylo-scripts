@@ -36,14 +36,6 @@ for Line in File:
 		Sequence += Line
 SequenceList.append(Sequence.replace("\n",""))
 SequenceList.pop(0)
-print SequenceList
-print TaxonList
-print len(SequenceList)
-print len(TaxonList)
-
-
-
-
 MaxSeq = len(TaxonList)
 
 Percent = [0.0]*len(SequenceList[1])
