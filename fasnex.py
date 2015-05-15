@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#last edit: 15.05.2015
 import sys
 
 Info = """Fasta to nexus converter. Version 1\n\n
@@ -13,12 +14,17 @@ else:
  	
 Fastafile = open(Fastafilename, "U")
 TaxonList = []
+#print "Converting file:", Fastafile
 
 # Get names of Taxa
 for Line in Fastafile:
+	#print Line
 	if Line[0] == ">":
 		NewLine = Line.replace(">","")
-		TaxonList.append(NewLine.strip("\n"))
+		#TaxonList.append(NewLine.strip("\n"))
+		TaxonList.append(NewLine.rstrip())
+		#print NewLine
+
 
 WhichSeq = -1
 TaxNumber = len(TaxonList)
@@ -29,7 +35,9 @@ TaxCount = 0
 #Get Sequences
 for Line in Fastafile:
 	if Line[0] != ">":
-		SequenceList[WhichSeq] += Line.strip("\n")
+		#SequenceList[WhichSeq] += Line.strip("\n")
+		SequenceList[WhichSeq] += Line.rstrip()
+
 	else:
 		WhichSeq += 1	
 		
