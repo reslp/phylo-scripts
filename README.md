@@ -25,8 +25,8 @@ Install with Docker
 ===================
 
 This is probably the easiest way to install and use phylo-scripts. Here a short introduction on how to install and use phylo-scripts with Docker:
-1. Install [Docker](www.docker.com) 
-2. Install the phylo-scripts container: `docker build github.com/reslp/phylo-scripts --tag phylo-scripts`
+1. Install [Docker](http://www.docker.com) or if you are on Windows use [Docker Toolbox](https://www.docker.com/products/docker-toolbox).
+2. Install the phylo-scripts container: `docker build github.com/reslp/phylo-scripts --tag phylo-scripts`. If you are using Docker Toolbox you will need to start the Virtual Machine first by clicking on the start.sh file in the Docker Toolbox Folder.
 3. To create concatenated alignments execute `docker run -v <full_path_to_input_files>:/input_files/ phylo-scripts`
 
 Important: <full_path_to_input_files> has to be the full path to your files starting from the root of your file system. This folder should contain all the single locus files which should be used in the multi gene alignment and the file with Sequence IDs (`IDs_used_for_tree.txt`). 
@@ -34,11 +34,10 @@ Important: <full_path_to_input_files> has to be the full path to your files star
 Local installation
 ============
 
-
 You need:
 
 - MacOS X or other Unix like operating system (Windows Version in the works)
-- [python](www.python.org) 2.7.8+, which comes with most Unix like systems
+- [python](http://www.python.org) 2.7.8+, which comes with most Unix like systems
 - [mafft](http://mafft.cbrc.jp/alignment/software/) v7, for the alignment function
 
 
