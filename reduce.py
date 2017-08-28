@@ -29,7 +29,7 @@ for Line in TaxonFile:
 	else:
 		TaxonList.append(Line.strip("\n"))
 	
-sys.stderr.write("Reducing file %s to this list of Taxa:\n %s\n" % (File, TaxonList))
+#sys.stderr.write("Reducing file %s to this list of Taxa:\n %s\n" % (File, TaxonList))
 TaxonListOutput = TaxonList [:] #Taxon List for Output
 TaxonFile.close()
 
