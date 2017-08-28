@@ -9,13 +9,13 @@ do
 	echo "Working on file:"
 	echo $d
 	echo "...Reduce"
-	./phylo-scripts/reduce.py ./input_files/IDs_used_for_tree.txt $d > tmp/reduced_${d:21}
+	./phylo-scripts/reduce.py ./input_files/IDs_used_for_tree.txt $d > tmp/reduced_${d:14}
 	echo "...Align"
-	mafft --genafpair --maxiterate 10000 --quiet tmp/reduced_${d:21} > tmp/aligned_reduced_${d:21} 
-	rm tmp/reduced_${d:21}
+	mafft --genafpair --maxiterate 10000 --quiet tmp/reduced_${d:21} > tmp/aligned_reduced_${d:14} 
+	rm tmp/reduced_${d:14}
 	echo "...Replace"
-	./phylo-scripts/replace.py tmp/aligned_reduced_${d:21} > tmp/replaced_${d:21} 
-	rm tmp/aligned_reduced_${d:21}
+	./phylo-scripts/replace.py tmp/aligned_reduced_${d:14} > tmp/replaced_${d:14} 
+	rm tmp/aligned_reduced_${d:14}
 done
 
 echo "Create concatenated alignment"
