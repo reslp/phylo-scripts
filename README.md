@@ -21,8 +21,21 @@ You will end up with a file called concat.fas that contains a concatenated align
 
 Also you may have a look at the `PIPELINE_USAGE.txt` file
 
-Requirements and installation
+Install with Docker
+===================
+
+This is probably the easiest way to install and use phylo-scripts. Here a short introduction on how to install and use phylo-scripts with Docker:
+1. Install [Docker](www.docker.com) 
+2. Install the phylo-scripts container: `docker build github.com/reslp/phylo-scripts --tag phylo-scripts`
+3. To create concatenated alignments execute `docker run -v <full_path_to_input_files>:/input_files/ phylo-scripts`
+
+Important: <full_path_to_input_files> has to be the full path to your files starting from the root of your file system. This folder should contain all the single locus files which should be used in the multi gene alignment and the file with Sequence IDs (`IDs_used_for_tree.txt`). 
+
+Local installation
 ============
+
+
+You need:
 
 - MacOS X or other Unix like operating system (Windows Version in the works)
 - [python](www.python.org) 2.7.8+, which comes with most Unix like systems
