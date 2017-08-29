@@ -5,14 +5,12 @@ echo "Make sure to specify the FULL path to your input folder containing single 
 echo
 echo "Example command (container is called phylo): docker run -v /home/resl/my_sequences/:/input_files/ phylo"
 echo
-echo "If you use the concat pipeline in a publication please cite:"
-echo "1) Philipp Resl (2015): phylo-scripts: Python scripts for phylogenetics. release v0.1. available at: http://github.com/reslp DOI: 10.5281/zenodo.15983"
-echo "2) Philipp Resl, Kevin Schneider, Martin Westberg, Christian Printzen, Zdeněk Palice, Göran Thor, Alan Fryday, Helmut Mayrhofer and Toby Spribille (2015) Diagnostics for a troubled backbone: testing topological hypotheses of trapelioid lichenized fungi in a large-scale phylogeny of Ostropomycetidae (Lecanoromycetes). Fungal Diversity 73: 239-258"
 
 [ -f ./input_files/IDs_used_for_tree.txt ] && echo "Found taxon ID file" || exit
 wd=$(pwd)
 #mkdir tmp
 
+echo
 for d in $(ls ./input_files/*.fas)
 do
 	echo "Working on file: $d"
@@ -32,5 +30,10 @@ echo "Calling concat.py"
 cp concat.fas input_files/
 echo
 echo "Concatenator is done."
+echo
+echo "If you use the concat pipeline in a publication please cite:"
+echo "1) Philipp Resl (2015): phylo-scripts: Python scripts for phylogenetics. release v0.1. available at: http://github.com/reslp DOI: 10.5281/zenodo.15983"
+echo "2) Philipp Resl, Kevin Schneider, Martin Westberg, Christian Printzen, Zdeněk Palice, Göran Thor, Alan Fryday, Helmut Mayrhofer and Toby Spribille (2015) Diagnostics for a troubled backbone: testing topological hypotheses of trapelioid lichenized fungi in a large-scale phylogeny of Ostropomycetidae (Lecanoromycetes). Fungal Diversity 73: 239-258"
+echo
 exit
 
