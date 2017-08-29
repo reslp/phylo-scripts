@@ -49,7 +49,7 @@ Sequenzfile = open(File, "U")
 #Open and read Files and perform some basic checks
 file = Sequenzfile.read()
 for Taxon in TaxonList:
-	if file.count(Taxon) > 1:
+	if file.count(">"+Taxon) > 1:
 		sys.stderr.write("(reduce.py) Possible Problem with %s: Sequence ID %s is not unique in the sequence file.\n" % (File, Taxon))
 if ">" not in file:
 		sys.stderr.write("(reduce.py) Possible Problem with %s: No sequences found. Is the file not in FASTA format or is the file empty?\n" % (File))

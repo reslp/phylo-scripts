@@ -92,7 +92,7 @@ for file in FileList:
 	File = open(file, "U")
 	full_file = File.read()
 	for Taxon in TaxonList:
-		if full_file.count(Taxon) > 1:
+		if full_file.count(">"+Taxon) > 1:
 			sys.stderr.write("(reduce.py) Possible Problem with %s: Sequence ID %s is not unique in the sequence file.\n" % (file,Taxon))
 	if ">" not in full_file:
 		sys.stderr.write("(concat.py) Possible Problem with %s: No sequences found. Is the file not in FASTA format or is the file empty?\n" % (file))
