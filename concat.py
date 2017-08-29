@@ -4,7 +4,7 @@
 # code may be freely distributed and modified
 # feedback to: philipp.resl@uni-graz.at
 # http://resl.tumblr.com
-# last change: 02.04.2014
+# last change: 29.08.2017
 
 import sys #for command line arguments
 
@@ -40,20 +40,26 @@ else:
  	TaxonFilename = sys.argv[1]
  	FileList = sys.argv[2:]
 
-sys.stderr.write("\nStarting...")
+sys.stderr.write("(concat.py) Starting concatenation\n")
+
 #reading Taxa from taxonfile
-TaxonFile = open(TaxonFilename, "r")
+TaxonFile = open(TaxonFilename, "U")
 TaxonList = []
 for Line in TaxonFile:
 	TaxonList.append(Line.strip("\n"))
-#sys.stderr.write("List of Taxa:\n %s\n" % TaxonList)
+	
+for element in set(TaxonList):
+	if TaxonList.count(element) > 1:
+		sys.stderr.write("(concat.py) Possible Problem: Duplicated Taxon in Taxon list: %s \n" % (element.strip()))
+
+
 TaxonListOutput = TaxonList [:] #Taxon List for Output
 TaxonFile.close()
 
 #output filelist
-sys.stderr.write("\nI will use the following files:\n")
+sys.stderr.write("(concat.py) Will use the following files:\n")
 for InfileName in FileList:
-	sys.stderr.write(InfileName + "\n")
+	sys.stderr.write("(concat.py) "+ InfileName + "\n")
 	
 #get total number of taxa
 TotTax = len(TaxonList)
@@ -80,12 +86,24 @@ def add_to_taxon(WhichTaxon):
 	TaxonListOutput[WhichTaxon] += "O"
 	return
 # end of add_to_taxon
-	
+
+i=0
+for file in FileList:
+	File = open(file, "U")
+	full_file = File.read()
+	for Taxon in TaxonList:
+		if full_file.count(Taxon) > 1:
+			sys.stderr.write("(reduce.py) Possible Problem with %s: Sequence ID %s is not unique in the sequence file.\n" % (file,Taxon))
+	if ">" not in full_file:
+		sys.stderr.write("(concat.py) Possible Problem with %s: No sequences found. Is the file not in FASTA format or is the file empty?\n" % (file))
+	File.close()
+
 #search for sequence in file
 i = 0
+Found = 0
 for i in range(0, len(FileList)):
-	Sequenzfile = open(FileList[i], "r")
-	sys.stderr.write("\nOpening:\n"+FileList[i])
+	Sequenzfile = open(FileList[i], "U")
+	sys.stderr.write("(concat.py) Processing: "+FileList[i]+"\n")
 	TaxonNum = 0
 	for Element in TaxonList:
 		for Line in Sequenzfile:
@@ -101,6 +119,7 @@ for i in range(0, len(FileList)):
 		LineIndex = 0
 		Sequenzfile.seek(0)	
 		TaxonNum +=1
+	Sequenzfile.close()
 	SequenceList = add_missing(SequenceList)
 
 # print Output:
@@ -108,5 +127,5 @@ for i in range(0, TotTax):
 	print ">" + TaxonListOutput[i]
 	print SequenceList[i]
 
-sys.stderr.write("\nYour file is ready.\n")
+sys.stderr.write("(concat.py) Your file is ready.\n")
 	

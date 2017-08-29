@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 # script replaces - with ? at the beginning and end of textfile
-# Version3, changed: 07.11.2013
+# written by Philipp Resl, Dec. 2013
+# code may be freely distributed and modified
+# feedback to: philipp.resl@uni-graz.at
+# http://philipp.resl.xyz
+# modified: 29.08.2017
 
 import sys
 
 Info = """
-REPLACER: Replaces - with ? at the beginning and end of fasta alignments
+replace.py: Replaces - with ? at the beginning and end of fasta alignments
 Usage: replace.py input.fas > output.fas
 """
 
@@ -14,7 +18,6 @@ if len(sys.argv) != 2:
 	quit()
 else:
 	FileName = sys.argv[1]
-#FileName =  "its_all_muscle.fas" 
 
 def replace_begin (Sequenz_0):
 	zahl = 0
@@ -40,18 +43,24 @@ def replace_end (Sequenz_0):
 #end replace_end
 
 TaxonList = []
-
-
-
 File = open(FileName, "U")
+file = File.read()
+if ">" not in file:
+		sys.stderr.write("(replace.py) Possible Problem: No sequences found. This the file not in FASTA format or is the file empty?\n")
+
+File.seek(0)
 for Line in File:
 	if Line[0] == ">":
 		TaxonList.append(Line)
-
+for element in set(TaxonList):
+	if TaxonList.count(element) > 1:
+		sys.stderr.write("(replace.py) Possible Problem: Duplicated Sequence: %s \n" % (element.strip()))
+		
 MaxSeq = len(TaxonList)
 SequenceList = [""] * MaxSeq
 File.seek(0)
 SeqNumber = -1	
+
 for Line in File:
 	if Line[0] != ">":
 		SequenceList[SeqNumber] += Line

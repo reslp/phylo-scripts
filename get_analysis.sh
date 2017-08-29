@@ -1,5 +1,5 @@
 #!/bin/sh
-#This script is part of the phylo-script pipeline: github.com/reslp
+#This script is part of the phylo-script pipeline: github.com/reslp/phylo-scripts
 #written by Philipp Resl 2015
 
 ###################################################################
@@ -68,5 +68,5 @@ done
 rm concat.fas
 
 echo "Create concatenated alignment"
-~/Dropbox/phylo_scripts/concat.py $IDFILE *_replaced > concat.fas
+./concat.py $IDFILE *_replaced > concat.fas
 echo "Done"
