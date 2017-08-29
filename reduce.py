@@ -24,20 +24,14 @@ TaxonFile = open(TaxonFilename, "U")
 TaxonList = []
 
 for Line in TaxonFile:
-	if "\r\n" in Line: #probably not needed since the file is opened with universal mode, only for windows
-		TaxonList.append(Line.strip("\r\n"))
-	else:
-		TaxonList.append(Line.strip("\n"))
+		TaxonList.append(Line.strip())
 TaxonFile.close()
 
 for element in set(TaxonList):
 	if TaxonList.count(element) > 1:
 		sys.stderr.write("(reduce.py) Possible Problem: Duplicated Taxon in Taxon list: %s \n" % (element.strip()))
 
-	
-#sys.stderr.write("Reducing file %s to this list of Taxa:\n %s\n" % (File, TaxonList))
-TaxonListOutput = TaxonList [:] #Taxon List for Output
-
+	TaxonListOutput = TaxonList [:] #Taxon List for Output
 
 #get total number of taxa
 TotTax = len(TaxonList)
@@ -57,6 +51,7 @@ if ">" not in file:
 
 
 Found = 0
+Sequenzfile.seek(0)
 for Taxon in TaxonList:
 	for Line in Sequenzfile:
 		if Line.startswith(">"+Taxon): #sequence name has to start with Taxon ID
