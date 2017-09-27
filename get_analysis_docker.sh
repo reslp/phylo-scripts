@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "********************************************************************************************************************"
 echo
-echo "Starting Concatenator"
+echo "Starting Concatenator, V27092017"
 echo
 echo "Make sure to specify the FULL path to your input folder containing single locus files and the IDs_used_for_tree file"
 echo
