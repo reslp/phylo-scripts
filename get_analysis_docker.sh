@@ -11,7 +11,13 @@ echo "**************************************************************************
 echo
 echo "(Control script) Searching necessary files..."
 
-[ -f ./input_files/IDs_used_for_tree.txt ] && echo "(Control script) Found taxon ID file" || (echo "(Control script) No Taxon ID file present"  && exit)
+if [ -f ./input_files/IDs_used_for_tree.txt ] 
+then
+	echo "(Control script) Found taxon ID file" 
+else
+	echo "(Control script) No Taxon ID file present" 
+	exit
+fi
 wd=$(pwd)
 #mkdir tmp
 
