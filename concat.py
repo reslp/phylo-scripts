@@ -46,7 +46,9 @@ sys.stderr.write("(concat.py) Starting concatenation\n")
 TaxonFile = open(TaxonFilename, "U")
 TaxonList = []
 for Line in TaxonFile:
-	TaxonList.append(Line.strip("\n"))
+	TaxonList.append(Line.strip())
+
+TaxonList = filter(None, TaxonList) #remove empty elements
 	
 for element in set(TaxonList):
 	if TaxonList.count(element) > 1:
@@ -93,7 +95,7 @@ for file in FileList:
 	full_file = File.read()
 	for Taxon in TaxonList:
 		if full_file.count(">"+Taxon) > 1:
-			sys.stderr.write("(reduce.py) Possible Problem with %s: Sequence ID %s is not unique in the sequence file.\n" % (file,Taxon))
+			sys.stderr.write("(concat.py) Possible Problem with %s: Sequence ID %s is not unique in the sequence file.\n" % (file,Taxon))
 	if ">" not in full_file:
 		sys.stderr.write("(concat.py) Possible Problem with %s: No sequences found. Is the file not in FASTA format or is the file empty?\n" % (file))
 	File.close()
