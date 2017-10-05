@@ -27,6 +27,8 @@ for Line in TaxonFile:
 		TaxonList.append(Line.strip())
 TaxonFile.close()
 
+TaxonList = filter(None, TaxonList) #remove empty elements
+
 for element in set(TaxonList):
 	if TaxonList.count(element) > 1:
 		sys.stderr.write("(reduce.py) Possible Problem: Duplicated Taxon in Taxon list: %s \n" % (element.strip()))
@@ -49,7 +51,7 @@ if ">" not in file:
 		sys.stderr.write("(reduce.py) Possible Problem with %s: No sequences found. Is the file not in FASTA format or is the file empty?\n" % (File))
 
 
-
+"""
 Found = 0
 Sequenzfile.seek(0)
 for Taxon in TaxonList:
@@ -64,7 +66,7 @@ for Taxon in TaxonList:
 			else:
 				Found = 0
 	Sequenzfile.seek(0)
-			
+"""			
 	
 			
 		
