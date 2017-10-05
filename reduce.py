@@ -51,7 +51,7 @@ if ">" not in file:
 		sys.stderr.write("(reduce.py) Possible Problem with %s: No sequences found. Is the file not in FASTA format or is the file empty?\n" % (File))
 
 
-"""
+
 Found = 0
 Sequenzfile.seek(0)
 for Taxon in TaxonList:
@@ -66,7 +66,7 @@ for Taxon in TaxonList:
 			else:
 				Found = 0
 	Sequenzfile.seek(0)
-"""			
+		
 	
 			
 		
