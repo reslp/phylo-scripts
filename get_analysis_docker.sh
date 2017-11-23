@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "********************************************************************************************************************"
 echo
-echo "Starting Concatenator, V05102017"
+echo "Starting Concatenator, V23112017"
 echo
 echo "Make sure to specify the FULL path to your input folder containing single locus files and the IDs_used_for_tree file"
 echo
@@ -42,6 +42,7 @@ echo "(Control script) Calling concat.py"
 echo "(Control script) Copying concatenated alignment"
 echo
 cp concat.fas input_files/
+cp tmp/*.fas input_files/
 echo "(Control script) done"
 echo
 echo "********************************************************************************************************************"
